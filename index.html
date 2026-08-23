@@ -3,29 +3,93 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rachel Beecham — Tech Operations &amp; AI Enablement</title>
-<meta name="description" content="Operations professional building practical AI-enabled software. Tech operations, workflow automation, and business systems.">
+<title>Rachel Beecham | AI Operations, Automation &amp; Business Systems</title>
+<meta name="description" content="Rachel Beecham builds practical AI workflows, automation, and business systems, combining software engineering with real-world operations and entrepreneurship experience.">
+<meta name="theme-color" content="#F7F0E5">
+<link rel="canonical" href="https://rachelbeecham.dev/">
 
-<meta property="og:title" content="Rachel Beecham — Tech Operations &amp; AI Enablement">
-<meta property="og:description" content="Operations professional building practical AI-enabled software.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://rachelbeecham.dev">
+<meta property="og:url" content="https://rachelbeecham.dev/">
+<meta property="og:title" content="Rachel Beecham | AI + Business Systems">
+<meta property="og:description" content="Building practical AI workflows, automation, and business systems around real operational problems.">
+<meta property="og:image" content="https://rachelbeecham.dev/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rachel Beecham — AI + Business Systems, Workflow Automation, Technical Operations">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rachel Beecham | AI + Business Systems">
+<meta name="twitter:description" content="Building practical AI workflows, automation, and business systems around real operational problems.">
+<meta name="twitter:image" content="https://rachelbeecham.dev/og-image.jpg">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='16' cy='32' r='13' fill='%23ff5b45'/%3E%3Ccircle cx='34' cy='32' r='13' fill='%236f86ff'/%3E%3Ccircle cx='52' cy='32' r='13' fill='%23d9f45a'/%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rachel Beecham",
+  "url": "https://rachelbeecham.dev/",
+  "description": "AI and business systems builder focused on workflow automation, technical operations, and practical human-centered AI.",
+  "sameAs": [
+    "https://github.com/rbeecham1076",
+    "https://www.linkedin.com/in/rachel-beecham/"
+  ],
+  "knowsAbout": [
+    "Artificial Intelligence",
+    "Workflow Automation",
+    "Business Systems",
+    "Technical Operations",
+    "Python",
+    "JavaScript",
+    "TypeScript",
+    "SQL",
+    "Software Engineering",
+    "Human-in-the-loop AI",
+    "Process Improvement"
+  ]
+}
+</script>
+
+<!--
+  Analytics / verification (Section 26-27 of SEO brief): not yet installed.
+  When ready, add here:
+  - Google Analytics 4: paste the GA4 snippet using the real Measurement ID from
+    analytics.google.com (do not use a placeholder ID).
+  - Google Search Console: add rachelbeecham.dev as a Domain property, verify via
+    DNS TXT record (no HTML tag needed for domain-property verification).
+  - Bing Webmaster Tools: <meta name="msvalidate.01" content="REAL_TOKEN"> once generated.
+  - Pinterest domain verification: <meta name="p:domain_verify" content="REAL_TOKEN"> once generated.
+-->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap">
 
 <style>
   :root{
-    --ink:#1E1B2E;
-    --ink-soft:#4A4358;
-    --ink-faint:#7A7189;
-    --cream:#FFF8F0;
-    --paper:#FFFFFF;
-    --coral:#FF5A36;
-    --mustard:#FFC145;
-    --mint:#A8E6CF;
-    --rule:#E8D9C8;
+    --ink:#171522;
+    --ink-soft:#2d2940;
+    --muted:#6d667a;
+    --cream:#f8f3e9;
+    --paper:#fffdf8;
+    --coral:#ff5b45;
+    --pink:#ff70ad;
+    --acid:#d9f45a;
+    --blue:#6f86ff;
+    --aqua:#8ee6dc;
+    --lavender:#d8ccff;
+    --rule:rgba(23,21,34,.16);
+    --line-strong:rgba(23,21,34,.34);
+    --oat:#E9DFD1;
+    --mustard:#f5c84c;
+    --mint:#c9f4e3;
+    --canvas:#efe7da;
+    --ink-faint:#948da3;
+    --shadow:0 24px 60px rgba(47,43,66,.11);
+    --sans:'Bricolage Grotesque',system-ui,sans-serif;
+    --serif:'Instrument Serif',Georgia,serif;
+    --mono:'DM Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   }
 
   *{box-sizing:border-box}
@@ -33,22 +97,35 @@
 
   body{
     margin:0;
-    background:var(--cream);
+    overflow-x:hidden;
+    background:
+      radial-gradient(circle at 8% 2%, rgba(216,204,255,.55), transparent 23rem),
+      radial-gradient(circle at 95% 22%, rgba(142,230,220,.38), transparent 24rem),
+      var(--cream);
     color:var(--ink);
-    font-family:'Outfit',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    font-size:17px;
+    font-family:'Bricolage Grotesque',system-ui,sans-serif;
+    font-size:16px;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.13;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");mix-blend-mode:multiply}
+  ::selection{background:var(--acid);color:var(--ink)}
+  .mono{font-family:var(--mono)}
 
   .wrap{
-    max-width:900px;
+    max-width:1240px;
     margin:0 auto;
-    padding:clamp(1.75rem,5vw,3.5rem) clamp(1.1rem,4vw,2rem) 4rem;
+    padding:0 clamp(1rem,4vw,2rem) 4rem;
     display:flex;
     flex-direction:column;
-    gap:clamp(2.5rem,5vw,3.5rem);
+    gap:0;
   }
+
+  .nav-wrap{position:sticky;top:0;z-index:50;padding:14px 0 0}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem .95rem .8rem 1.15rem;border:1px solid rgba(23,21,34,.18);border-radius:999px;background:rgba(255,253,248,.78);backdrop-filter:blur(18px);box-shadow:0 10px 35px rgba(40,31,57,.08)}
+  .brand{display:flex;align-items:center;gap:.68rem;text-decoration:none;font-weight:800;letter-spacing:-.03em}
+  .brand-dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:13px 0 0 var(--blue),26px 0 0 var(--acid);margin-right:26px}
+  .nav-links{display:flex;align-items:center;gap:.18rem}.nav-links a{font-size:.82rem;font-weight:700;text-decoration:none;padding:.52rem .72rem;border-radius:999px}.nav-links a:hover,.nav-links a:focus-visible{background:var(--ink);color:var(--paper)}.nav-links a:focus-visible{outline:2px solid var(--coral);outline-offset:2px}.nav-cta{background:var(--ink)!important;color:white!important}
 
   a{color:var(--coral)}
 
@@ -57,79 +134,69 @@
   .hero{
     position:relative;
     overflow:hidden;
-    background:
-      radial-gradient(circle at 88% 18%, #FFD9A8 0%, rgba(255,217,168,0) 46%),
-      radial-gradient(circle at 12% 88%, #FFC7B8 0%, rgba(255,199,184,0) 52%),
-      linear-gradient(135deg,#FFF1E2 0%,#FFE4D3 100%);
-    border:3px solid var(--ink);
-    border-radius:28px;
-    box-shadow:10px 10px 0 var(--ink);
-    padding:clamp(1.75rem,4.5vw,2.9rem);
+    background:transparent;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
+    padding:clamp(4.4rem,8vw,7.8rem) 0 clamp(3.5rem,7vw,6.2rem);
   }
+  .hero:before{content:"";display:block;position:absolute;inset:0;pointer-events:none;opacity:.55;background:radial-gradient(circle at 9% 28%,rgba(125,136,210,.16) 0 8rem,transparent 8.2rem),radial-gradient(circle at 90% 16%,rgba(241,90,71,.12) 0 11rem,transparent 11.2rem),repeating-linear-gradient(90deg,transparent 0 79px,rgba(28,32,53,.035) 80px),repeating-linear-gradient(0deg,transparent 0 79px,rgba(28,32,53,.035) 80px);mask-image:linear-gradient(to bottom,#000 0 78%,transparent 100%)}
+  .hero:after{display:none}
+  .hero-layout{position:relative;z-index:1;display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(1rem,2vw,1.5rem);align-items:end}
 
-  .eyebrow{
-    display:inline-block;
-    background:var(--ink);
-    color:var(--cream);
-    font-size:.72rem;
-    font-weight:800;
-    letter-spacing:.16em;
-    text-transform:uppercase;
-    padding:.4rem .9rem;
-    border-radius:999px;
-    margin-bottom:1.15rem;
-  }
+  .hero-main{grid-column:1 / span 9;position:relative;z-index:2}
+  .hero-side{grid-column:9 / -1;display:flex;flex-direction:column;gap:1rem;position:relative;z-index:3;margin-bottom:.6rem}
+  .kicker{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1.3rem}
+  .kicker:before{content:"";width:28px;height:2px;background:var(--coral)}
+  .hero-serif{font-family:var(--serif);font-weight:400;font-style:italic;color:var(--coral);letter-spacing:-.045em}
+  .hero-sub{margin:1.65rem 0 0;max-width:690px;font-size:clamp(1.05rem,1.8vw,1.3rem);color:var(--ink-soft);font-weight:500;line-height:1.48}
+  .hero-sub strong{color:var(--ink);font-weight:750}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:.72rem;margin-top:1.9rem}
+  .btn-dark{background:var(--ink);color:white;box-shadow:5px 5px 0 var(--coral)}
+  .btn-light{background:rgba(255,253,248,.84)}
+  .mini-card{position:relative;border:1.5px solid var(--ink);background:var(--paper);padding:1.15rem 1.2rem;box-shadow:8px 9px 0 rgba(28,32,53,.1)}
+  .mini-card:first-child{border-radius:30px 30px 8px 30px;transform:rotate(1.2deg);background:var(--blue);color:white}
+  .mini-card:last-child{border-radius:10px 30px 30px 30px;transform:translateX(-22px) rotate(-1.1deg)}
+  .mini-label{font-family:var(--mono);font-size:.63rem;text-transform:uppercase;letter-spacing:.08em;opacity:.68;margin-bottom:.66rem}
+  .mini-title{font-size:1.14rem;font-weight:800;line-height:1.16;letter-spacing:-.025em}
+  .mini-copy{font-size:.86rem;opacity:.78;margin-top:.5rem}
+  .status-line{display:flex;align-items:center;gap:.5rem;margin-top:.8rem;font-family:var(--mono);font-size:.65rem}
+  .status-dot{width:8px;height:8px;border-radius:50%;background:#2ca56a;box-shadow:0 0 0 5px rgba(44,165,106,.12)}
 
-  h1{
-    font-size:clamp(2.4rem,7vw,3.6rem);
-    font-weight:900;
-    line-height:.98;
-    letter-spacing:-.035em;
-    margin:0 0 1rem;
-    text-wrap:balance;
-  }
-
-  h1 .hl{position:relative;display:inline-block;color:var(--coral);z-index:0}
-  h1 .hl::after{
-    content:"";
-    position:absolute;
-    left:-2px;right:-2px;bottom:.07em;
-    height:.19em;
-    background:var(--mustard);
-    border-radius:999px;
-    z-index:-1;
-  }
-
-  .lede{
-    font-size:clamp(1rem,2.4vw,1.12rem);
-    font-weight:500;
-    line-height:1.55;
-    color:var(--ink-soft);
-    max-width:34rem;
-    margin:0 0 1.75rem;
-  }
+  .identity-line{font-family:var(--sans);font-weight:800;font-size:clamp(1rem,1.6vw,1.15rem);letter-spacing:-.015em;color:var(--ink-soft);margin:0 0 .55rem}
+  .tagline{font-size:clamp(4.1rem,9.6vw,8.8rem);font-weight:750;line-height:.82;letter-spacing:-.075em;color:var(--ink);margin:0 0 1rem;max-width:9.2ch}
 
   .actions{display:flex;flex-wrap:wrap;gap:.7rem}
 
   .btn{
     display:inline-block;
-    padding:.65rem 1.25rem;
+    max-width:100%;
+    padding:.68rem 1.15rem;
     border-radius:14px;
     border:2px solid var(--ink);
     font-weight:700;
     font-size:.94rem;
     text-decoration:none;
-    transition:transform .08s ease,box-shadow .08s ease;
+    overflow-wrap:anywhere;
+    transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
   }
   .btn-primary{background:var(--coral);color:#fff;box-shadow:4px 4px 0 var(--ink)}
   .btn-ghost{background:rgba(255,255,255,.75);color:var(--ink)}
-  .btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
-  .btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+  .btn:hover{transform:translate(-1px,-1px);background:var(--coral);color:#fff;box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translateY(0)}
   .btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+  .ticker{overflow:hidden;border-block:1px solid var(--rule);background:var(--paper);margin:0 calc(clamp(1rem,4vw,2rem) * -1)}
+  .ticker-track{display:flex;width:max-content;animation:scroll 28s linear infinite}
+  .ticker-item{display:flex;align-items:center;gap:1rem;white-space:nowrap;padding:.82rem 1.5rem;font-family:'DM Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em}
+  .ticker-item:after{content:"✦";color:var(--coral);font-size:.92rem}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  .ticker{position:relative;z-index:5;transform:rotate(-1.6deg);background:var(--ink);color:#fff;border-color:var(--ink);margin-top:-12px}
+  .ticker-item:after{color:var(--acid)}
 
   /* ---------- Sections ---------- */
 
-  section{display:flex;flex-direction:column;gap:1.1rem}
+  section{display:flex;flex-direction:column;gap:1.1rem;padding:clamp(4.6rem,8vw,7rem) 0;border-bottom:1px solid var(--rule)}
 
   .label{
     font-size:.72rem;
@@ -156,23 +223,25 @@
 
   .project{
     background:var(--paper);
-    border:3px solid var(--ink);
-    border-radius:22px;
-    box-shadow:6px 6px 0 var(--ink);
+    border:1.5px solid var(--ink);
+    border-radius:30px 10px 30px 30px;
+    box-shadow:10px 12px 0 var(--coral);
     overflow:hidden;
   }
 
   .project-body{
-    padding:clamp(1.25rem,3.5vw,1.9rem);
+    padding:clamp(1.5rem,3vw,2.5rem);
     display:flex;
     flex-direction:column;
     gap:1rem;
   }
 
   .project h3{
-    font-size:clamp(1.3rem,3.2vw,1.6rem);
+    font-size:clamp(2.4rem,4.4vw,4.7rem);
     font-weight:800;
-    letter-spacing:-.02em;
+    letter-spacing:-.06em;
+    line-height:.88;
+    max-width:9ch;
     margin:0;
   }
 
@@ -198,12 +267,16 @@
   }
   .project ul strong{color:var(--ink)}
 
+  #work{background:var(--paper);margin:0 calc(clamp(1rem,4vw,2rem) * -1);padding-left:clamp(1rem,4vw,2rem);padding-right:clamp(1rem,4vw,2rem)}
+  #approach{background:var(--cream)}
+  #background{background:var(--paper)}
+
   .shot{
     display:block;
     width:100%;
     height:auto;
-    border-top:3px solid var(--ink);
-    background:var(--cream);
+    border-top:1px solid var(--rule);
+    background:var(--canvas);
   }
 
   /* ---------- Skills ---------- */
@@ -232,6 +305,24 @@
     margin:0;
   }
   .skill-card p{font-size:.93rem;color:var(--ink-soft)}
+
+  /* ---------- Proof ---------- */
+
+  .proof-head{margin-top:.5rem}
+  .proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.9rem;margin-top:.9rem}
+  .proof-card{
+    position:relative;border:2px solid var(--ink);border-radius:18px;padding:1.15rem 1.25rem;
+    display:flex;flex-direction:column;gap:.4rem;background:var(--paper);
+    box-shadow:6px 7px 0 rgba(23,21,34,.1);
+  }
+  .proof-card .plabel{font-family:var(--mono);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;opacity:.72}
+  .proof-card .pnum{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1;letter-spacing:-.03em;white-space:nowrap}
+  .proof-card p{font-size:.86rem;max-width:none;opacity:.92}
+  .proof-card.strong-a{background:var(--coral);color:#fff;border-color:var(--ink)}
+  .proof-card.strong-b{background:var(--blue);color:#fff;border-color:var(--ink)}
+  .proof-card.soft-a{background:var(--lavender);color:var(--ink)}
+  .proof-card.soft-b{background:var(--aqua);color:var(--ink)}
+  .proof-detail{font-family:var(--mono);font-size:.62rem;letter-spacing:.02em;opacity:.72;margin-top:.05rem}
 
   /* ---------- Background ---------- */
 
@@ -271,77 +362,215 @@
     justify-content:space-between;
   }
 
+  .work-heading{display:flex;justify-content:space-between;align-items:end;gap:1rem}
+  .work-heading h2{max-width:38rem}
+  .directory{
+    display:flex;
+    flex-direction:column;
+    gap:1.25rem;
+  }
+  .directory-nav{display:grid;grid-template-columns:1fr auto;gap:.75rem;align-items:center;padding:1rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .directory-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--ink-faint);margin:0 0 .25rem}
+  .folder{
+    position:relative;display:block;text-decoration:none;color:var(--ink);background:transparent;
+    border:0;border-radius:0;padding:.65rem 1rem .65rem 3.5rem;min-height:64px;
+    transition:transform .15s ease,color .15s ease;
+  }
+  .folder:hover,.folder:focus-visible{transform:translateX(5px);color:var(--coral)}
+  .folder:focus-visible{outline:2px solid var(--coral);outline-offset:4px;border-radius:8px}
+  .folder-glyph{position:absolute;left:0;top:1.05rem;width:2.1rem;height:1.5rem;background:var(--mustard);border:2px solid var(--ink);border-radius:5px}
+  .folder-glyph:before{content:"";position:absolute;left:-2px;top:-.4rem;width:1rem;height:.55rem;background:var(--mustard);border:2px solid var(--ink);border-bottom:0;border-radius:5px 5px 0 0}
+  .folder strong{display:block;font-size:1rem;line-height:1.25}
+  .folder small{display:block;color:var(--ink-soft);font-size:.8rem;margin-top:.25rem}
+  .folder:hover small,.folder:focus-visible small{color:var(--ink-soft)}
+  .directory-meta{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rule);padding:0 0 .75rem;margin-bottom:1rem;color:var(--ink-faint);font-size:.82rem}
+  .directory-meta span:last-child{font-weight:700;color:var(--coral)}
+  .resume-note{background:var(--mint);border:2px solid var(--ink);border-radius:14px;padding:1rem 1.1rem;display:flex;align-items:center;gap:.8rem}
+  .resume-note strong{font-size:.96rem}
+  .resume-note span{font-size:.83rem;max-width:17rem}
+  .resume-note .actions{gap:.45rem}
+  .resume-note .btn{padding:.48rem .75rem;font-size:.8rem}
+  @media (max-width:760px){
+    .nav{margin:0 10px}
+    .nav-links a:not(.nav-cta){display:none}
+    .hero-layout{grid-template-columns:1fr}
+    .profile-wrap{justify-self:start;order:-1;margin:1rem 0 .75rem 1rem;width:125px;height:125px}
+    .profile-wrap:after{right:-16px;bottom:-2px;width:42px;height:42px}
+    .directory-nav{grid-template-columns:1fr}
+    .resume-note{align-items:flex-start;flex-direction:column}
+    .work-heading{align-items:start;flex-direction:column}
+  }
+
   @media (prefers-reduced-motion:reduce){
-    *{transition:none!important;scroll-behavior:auto!important}
+    *{transition:none!important;scroll-behavior:auto!important}.ticker-track{animation:none}
   }
 </style>
 </head>
 <body>
 
-<div class="wrap">
+<div class="nav-wrap">
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="#top"><span class="brand-dot" aria-hidden="true"></span>Rachel Beecham</a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#design-intelligence">Design Intelligence</a>
+      <a href="#approach">Approach</a>
+      <a href="#background">Background</a>
+      <a class="nav-cta" href="mailto:Contact@RachelBeecham.dev">Let's talk ↗</a>
+    </div>
+  </nav>
+</div>
+
+<main class="wrap">
 
   <header class="hero">
-    <div class="eyebrow">Tech Operations &middot; AI Enablement</div>
-    <h1>I make messy business processes <span class="hl">run themselves.</span></h1>
-    <p class="lede">
-      I spent years running operations — inventory, workflows, customer experience, a team.
-      Now I build software for the problems I used to solve by hand.
-    </p>
-    <div class="actions">
-      <a class="btn btn-primary" href="#work">See the work</a>
-      <a class="btn btn-ghost" href="resume.pdf" download>Download résumé</a>
-      <a class="btn btn-ghost" href="mailto:Contact@RachelBeecham.dev">Get in touch</a>
+    <div class="hero-layout">
+      <div class="hero-main">
+        <h1 class="identity-line">Rachel Beecham</h1>
+        <div class="kicker">AI enablement &middot; tech operations &middot; business systems</div>
+        <p class="tagline">Make the <span class="hero-serif">messy</span> work better.</p>
+        <p class="hero-sub">
+          I turn scattered business processes into <strong>clearer systems, practical automation, and human-centered AI workflows.</strong> I know what operational friction feels like because I spent years doing the work before I started building the software.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="#work">See selected work &darr;</a>
+          <a class="btn btn-light" href="resume.pdf" download aria-label="Download Rachel Beecham's résumé PDF">Resume</a>
+          <a class="btn btn-light" href="https://github.com/rbeecham1076" target="_blank" rel="noopener noreferrer" aria-label="Rachel Beecham's GitHub profile">GitHub &nearr;</a>
+        </div>
+      </div>
+      <aside class="hero-side" aria-label="Quick profile">
+        <div class="mini-card">
+          <div class="mini-label">Current direction</div>
+          <div class="mini-title">Practical AI for the work between the tools.</div>
+          <div class="mini-copy">The intake, routing, review, handoff, follow-up, and decisions that keep an operation moving.</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-label">How I build</div>
+          <div class="mini-title">AI drafts. Systems validate. People decide.</div>
+          <div class="status-line"><span class="status-dot"></span> Human-in-the-loop by default</div>
+        </div>
+      </aside>
     </div>
   </header>
 
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item">Python</span><span class="ticker-item">Workflow automation</span><span class="ticker-item">Business systems</span><span class="ticker-item">LLM integration</span><span class="ticker-item">Process improvement</span><span class="ticker-item">Technical operations</span>
+      <span class="ticker-item">Python</span><span class="ticker-item">Workflow automation</span><span class="ticker-item">Business systems</span><span class="ticker-item">LLM integration</span><span class="ticker-item">Process improvement</span><span class="ticker-item">Technical operations</span>
+    </div>
+  </div>
+
   <section id="work">
-    <div>
+    <div class="work-heading">
       <p class="label">Selected work</p>
-      <h2>AI Customer Inquiry Organizer</h2>
+      <h2>A working index of systems, tools, and decisions.</h2>
     </div>
 
-    <div class="project">
-      <div class="project-body">
-        <h3>Messy inbox in. Real work out.</h3>
-        <div class="stack">
-          <span class="chip">Python</span>
-          <span class="chip">Streamlit</span>
-          <span class="chip">SQLite</span>
-          <span class="chip">LLM API</span>
+    <div class="directory">
+      <nav class="directory-nav" aria-label="Portfolio contents">
+        <p class="directory-label">Contents / 2 projects</p>
+        <a class="folder" href="#inquiry-organizer">
+          <span class="folder-glyph" aria-hidden="true"></span>
+          <strong>AI Customer Inquiry Organizer</strong>
+          <small>AI triage &middot; Python &middot; Streamlit</small>
+        </a>
+        <a class="folder" href="#design-intelligence">
+          <span class="folder-glyph" aria-hidden="true"></span>
+          <strong>Design Intelligence</strong>
+          <small>Trend research &middot; AI-assisted &middot; Human-in-the-loop</small>
+        </a>
+        <div class="resume-note">
+          <strong>Résumé / profile</strong>
+          <span class="muted">Experience, education, and technical strengths in one page.</span>
+          <div class="actions">
+            <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="View Rachel Beecham's résumé PDF">View PDF</a>
+            <a class="btn btn-ghost" href="resume.pdf" download aria-label="Download Rachel Beecham's résumé PDF">Download</a>
+          </div>
         </div>
-        <p class="muted">
-          Customer messages arrive unstructured — different wording, tone, and detail every
-          time. Someone has to read each one, work out what the customer needs, judge how
-          urgent it is, and decide what happens next, before any real work starts.
-        </p>
-        <p class="muted">
-          This tool does that first pass: it sorts the message, ranks its urgency, routes it
-          to a department, and drafts a reply — then hands the whole thing to a person for a
-          yes or no.
-        </p>
-        <ul>
-          <li><strong>The AI drafts, a human decides.</strong> Every field is editable and nothing
-          is final until someone approves it. The model is explicitly barred from promising
-          refunds, replacements, or delivery dates — those are business decisions, not
-          classification tasks.</li>
-          <li><strong>Model output is never trusted directly.</strong> A validation layer checks
-          every field against approved values before anything is stored, so an unexpected
-          response becomes a safe default rather than a bad record.</li>
-          <li><strong>The AI provider is configuration, not code.</strong> Swapping the underlying
-          model is an environment variable, not a rewrite.</li>
-        </ul>
-        <div class="actions">
-          <a class="btn btn-primary" href="https://ai-customer-inquiry-organizer-2enfu6gjg65jheetpfu3ty.streamlit.app/" target="_blank" rel="noopener">Try it live</a>
-          <a class="btn btn-ghost" href="https://github.com/rbeecham1076/ai-customer-inquiry-organizer" target="_blank" rel="noopener">View the code</a>
+      </nav>
+
+      <article class="project" id="inquiry-organizer">
+        <div class="directory-meta"><span>01 / case study</span><span>Live project</span></div>
+        <div class="project-body">
+          <h3>Messy inbox in. Real work out.</h3>
+          <div class="stack">
+            <span class="chip">Python</span>
+            <span class="chip">Streamlit</span>
+            <span class="chip">SQLite</span>
+            <span class="chip">LLM API</span>
+          </div>
+          <p class="muted">
+            Customer messages arrive unstructured — different wording, tone, and detail every
+            time. Someone has to read each one, work out what the customer needs, judge how
+            urgent it is, and decide what happens next, before any real work starts.
+          </p>
+          <p class="muted">
+            This tool does that first pass: it sorts the message, ranks its urgency, routes it
+            to a department, and drafts a reply — then hands the whole thing to a person for a
+            yes or no.
+          </p>
+          <ul>
+            <li><strong>The AI drafts, a human decides.</strong> Every field is editable and nothing
+              is final until someone approves it. The model is explicitly barred from promising
+              refunds, replacements, or delivery dates — those are business decisions, not
+              classification tasks.</li>
+            <li><strong>Model output is never trusted directly.</strong> A validation layer checks
+              every field against approved values before anything is stored, so an unexpected
+              response becomes a safe default rather than a bad record.</li>
+            <li><strong>The AI provider is configuration, not code.</strong> Swapping the underlying
+              model is an environment variable, not a rewrite.</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://ai-customer-inquiry-organizer-2enfu6gjg65jheetpfu3ty.streamlit.app/" target="_blank" rel="noopener noreferrer" aria-label="Try the AI Customer Inquiry Organizer live demo">Try it live</a>
+            <a class="btn btn-ghost" href="https://github.com/rbeecham1076/ai-customer-inquiry-organizer" target="_blank" rel="noopener noreferrer" aria-label="View AI Customer Inquiry Organizer source code on GitHub">View the code</a>
+          </div>
         </div>
-      </div>
-      <img class="shot" src="project-screenshot.png"
-           alt="The AI Customer Inquiry Organizer showing a customer message analyzed into category, priority, sentiment, order number, routing, and a draft reply, all editable before approval."
-           loading="lazy" width="1600" height="1243">
+        <picture>
+          <source srcset="project-screenshot.webp" type="image/webp">
+          <img class="shot" src="project-screenshot.png"
+               alt="The AI Customer Inquiry Organizer showing a customer message analyzed into category, priority, sentiment, order number, routing, and a draft reply, all editable before approval."
+               loading="lazy" width="1600" height="1243">
+        </picture>
+      </article>
+
+      <article class="project" id="design-intelligence">
+        <div class="directory-meta"><span>02 / case study</span><span>In practice</span></div>
+        <div class="project-body">
+          <h3>Know what to design next.</h3>
+          <div class="stack">
+            <span class="chip">AI Workflow</span>
+            <span class="chip">Market Intelligence</span>
+            <span class="chip">Trend Research</span>
+            <span class="chip">Human-in-the-Loop</span>
+          </div>
+          <p class="muted">
+            Built for my own digital-design business: a repeatable research workflow that reads
+            Etsy, Pinterest, Faire, and Creative Fabrica for market evidence, emerging visual
+            signals, boutique &amp; wholesale taste, and creator-supply saturation — then turns
+            them into structured, scored product opportunities.
+          </p>
+          <p class="muted">
+            A trend on one marketplace is interesting. The same movement appearing independently
+            across multiple sources is far more meaningful. Each opportunity is scored on demand,
+            momentum, repeatability, customization, boutique fit, and competition gap, then
+            classified as Make Now, Next, Watch, or Saturated — a decision-support system, not a
+            guarantee of sales.
+          </p>
+          <ul>
+            <li><strong>AI assists the research.</strong> Tagging, clustering, and summarizing
+              evidence across sources — not making the creative call.</li>
+            <li><strong>The system structures it.</strong> Every signal is normalized and scored
+              against the same criteria, so patterns are comparable.</li>
+            <li><strong>I decide.</strong> Taste, originality, and whether a trend is worth
+              pursuing stay a human judgment — the same principle behind everything else I build:
+              AI drafts, systems validate, people decide.</li>
+          </ul>
+        </div>
+      </article>
     </div>
   </section>
 
-  <section>
+  <section id="approach">
     <div>
       <p class="label">What I bring</p>
       <h2>Operations experience, now with code behind it.</h2>
@@ -360,9 +589,37 @@
         <p>Cross-functional coordination, stakeholder communication, customer experience, intake and access workflows.</p>
       </div>
     </div>
+
+    <div class="proof-head">
+      <p class="label">Track record</p>
+      <p class="muted">A few numbers behind the operations experience above.</p>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card strong-a">
+        <div class="plabel">First-year sales</div>
+        <div class="pnum">$500K+</div>
+        <p>Built and operated a multi-channel retail business across online and physical operations.</p>
+      </div>
+      <div class="proof-card strong-b">
+        <div class="plabel">Customer community</div>
+        <div class="pnum">15K</div>
+        <p>Built and managed a private customer community while running day-to-day business operations.</p>
+      </div>
+      <div class="proof-card soft-a">
+        <div class="plabel">Digital orders</div>
+        <div class="pnum">205+</div>
+        <p>Built and operated an independent digital-product storefront with real customer demand and fulfillment workflows.</p>
+      </div>
+      <div class="proof-card soft-b">
+        <div class="plabel">Ad ROAS</div>
+        <div class="pnum">2.51×</div>
+        <p>Measured campaign performance across 123K+ ad impressions and 1,400+ clicks.</p>
+        <div class="proof-detail">96 ad-attributed orders · $785.10 revenue · $312.33 spend</div>
+      </div>
+    </div>
   </section>
 
-  <section>
+  <section id="background">
     <div>
       <p class="label">Background</p>
       <h2>Where this comes from.</h2>
@@ -371,7 +628,7 @@
       <div class="role">
         <div class="who">Sunnie Ray Digitals — Business Operations Lead / Owner</div>
         <div class="when">2024 – Present</div>
-        <div class="what">Sole operator across systems, workflows, delivery, and customer experience. Cut turnaround time 30–40% by consolidating repeatable work into reusable templates and standard processes.</div>
+        <div class="what">Sole operator across systems, workflows, delivery, and customer experience. Cut turnaround time 30–40% by consolidating repeatable work into reusable templates and standard processes. Operate a digital-product storefront using listing performance, traffic, order, and advertising data to guide product and workflow decisions.</div>
       </div>
       <div class="role">
         <div class="who">Midwest Steel — Operations Support / Site Administration</div>
@@ -407,19 +664,19 @@
       </p>
       <div class="actions">
         <a class="btn btn-primary" href="mailto:Contact@RachelBeecham.dev">Contact@RachelBeecham.dev</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/rachel-beecham/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn btn-ghost" href="https://github.com/rbeecham1076" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn btn-ghost" href="resume.pdf" download>Résumé (PDF)</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/rachel-beecham/" target="_blank" rel="noopener noreferrer" aria-label="Rachel Beecham's LinkedIn profile">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/rbeecham1076" target="_blank" rel="noopener noreferrer" aria-label="Rachel Beecham's GitHub profile">GitHub</a>
+        <a class="btn btn-ghost" href="resume.pdf" download aria-label="Download Rachel Beecham's résumé PDF">Résumé (PDF)</a>
       </div>
     </div>
   </section>
 
-  <footer>
-    <span>Rachel Beecham &middot; Built by hand, no site builder.</span>
-    <span>rachelbeecham.dev</span>
-  </footer>
+</main>
 
-</div>
+<footer class="wrap">
+  <span>Rachel Beecham &middot; Built by hand, no site builder.</span>
+  <span>rachelbeecham.dev</span>
+</footer>
 
 </body>
 </html>
