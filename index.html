@@ -64,7 +64,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=DM+Mono:wght@300;400;500&display=swap">
 
 <style>
   :root{
@@ -88,12 +88,25 @@
     --ink-faint:#948da3;
     --shadow:0 24px 60px rgba(47,43,66,.11);
     --sans:'Bricolage Grotesque',system-ui,sans-serif;
-    --serif:'Instrument Serif',Georgia,serif;
+    --serif:'Fraunces',Georgia,serif;
     --mono:'DM Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   }
 
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
+
+  /* Section index numbering — used by .label (see "Sections" below) */
+  main{counter-reset:section}
+  section{counter-increment:section}
+
+  /* Scroll-reveal: only active once JS confirms it can run cleanly.
+     Without JS, .reveal elements are simply visible — no hidden content. */
+  .js .reveal{opacity:0;transform:translateY(16px)}
+  .js .reveal.is-visible{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .js .reveal.is-visible ~ .reveal.is-visible{transition-delay:.05s}
+
+  .scroll-indicator{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--coral);z-index:200;pointer-events:none}
+  @media (prefers-reduced-motion:reduce){.scroll-indicator{display:none}}
 
   body{
     margin:0;
@@ -125,7 +138,7 @@
   .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem .95rem .8rem 1.15rem;border:1px solid rgba(23,21,34,.18);border-radius:999px;background:rgba(255,253,248,.78);backdrop-filter:blur(18px);box-shadow:0 10px 35px rgba(40,31,57,.08)}
   .brand{display:flex;align-items:center;gap:.68rem;text-decoration:none;font-weight:800;letter-spacing:-.03em}
   .brand-dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:13px 0 0 var(--blue),26px 0 0 var(--acid);margin-right:26px}
-  .nav-links{display:flex;align-items:center;gap:.18rem}.nav-links a{font-size:.82rem;font-weight:700;text-decoration:none;padding:.52rem .72rem;border-radius:999px}.nav-links a:hover,.nav-links a:focus-visible{background:var(--ink);color:var(--paper)}.nav-links a:focus-visible{outline:2px solid var(--coral);outline-offset:2px}.nav-cta{background:var(--ink)!important;color:white!important}
+  .nav-links{display:flex;align-items:center;gap:.18rem}.nav-links a{font-size:.82rem;font-weight:700;text-decoration:none;padding:.52rem .72rem;border-radius:999px;transition:background .18s ease,color .18s ease}.nav-links a:hover,.nav-links a:focus-visible{background:var(--ink);color:var(--paper)}.nav-links a:focus-visible{outline:2px solid var(--coral);outline-offset:2px}.nav-cta{background:var(--ink)!important;color:white!important}
 
   a{color:var(--coral)}
 
@@ -140,15 +153,21 @@
     box-shadow:none;
     padding:clamp(4.4rem,8vw,7.8rem) 0 clamp(3.5rem,7vw,6.2rem);
   }
-  .hero:before{content:"";display:block;position:absolute;inset:0;pointer-events:none;opacity:.55;background:radial-gradient(circle at 9% 28%,rgba(125,136,210,.16) 0 8rem,transparent 8.2rem),radial-gradient(circle at 90% 16%,rgba(241,90,71,.12) 0 11rem,transparent 11.2rem),repeating-linear-gradient(90deg,transparent 0 79px,rgba(28,32,53,.035) 80px),repeating-linear-gradient(0deg,transparent 0 79px,rgba(28,32,53,.035) 80px);mask-image:linear-gradient(to bottom,#000 0 78%,transparent 100%)}
+  .hero-bg{content:"";display:block;position:absolute;inset:-4% -2%;pointer-events:none;opacity:.55;background:radial-gradient(circle at 9% 28%,rgba(125,136,210,.16) 0 8rem,transparent 8.2rem),radial-gradient(circle at 90% 16%,rgba(241,90,71,.12) 0 11rem,transparent 11.2rem),repeating-linear-gradient(90deg,transparent 0 79px,rgba(28,32,53,.035) 80px),repeating-linear-gradient(0deg,transparent 0 79px,rgba(28,32,53,.035) 80px);mask-image:linear-gradient(to bottom,#000 0 78%,transparent 100%);will-change:transform}
   .hero:after{display:none}
   .hero-layout{position:relative;z-index:1;display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(1rem,2vw,1.5rem);align-items:end}
+  .hero-mark{position:absolute;top:clamp(3.6rem,7vw,6.4rem);right:0;z-index:1;width:2.15rem;height:2.15rem;border:1.5px solid var(--line-strong);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.02em;color:var(--ink-faint);opacity:.85}
+  @media (max-width:760px){.hero-mark{display:none}}
 
   .hero-main{grid-column:1 / span 9;position:relative;z-index:2}
   .hero-side{grid-column:9 / -1;display:flex;flex-direction:column;gap:1rem;position:relative;z-index:3;margin-bottom:.6rem}
   .kicker{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1.3rem}
   .kicker:before{content:"";width:28px;height:2px;background:var(--coral)}
-  .hero-serif{font-family:var(--serif);font-weight:400;font-style:italic;color:var(--coral);letter-spacing:-.045em}
+  .hero-serif{display:inline-block;position:relative;font-family:var(--serif);font-optical-sizing:auto;font-weight:420;font-style:italic;font-size:1.34em;line-height:.78;color:var(--coral);letter-spacing:-.015em;margin:0 .01em;transform:translateY(.045em)}
+  .hero-serif:after{content:"";position:absolute;left:-.02em;right:-.05em;bottom:.1em;height:.085em;background:var(--acid);z-index:-1;border-radius:2px;transform-origin:left;transform:scaleX(1)}
+  .js .hero-serif:after{transform:scaleX(0);transition:transform .6s cubic-bezier(.2,.7,.2,1) .5s}
+  .js .hero-serif.is-visible:after{transform:scaleX(1)}
+  @media (prefers-reduced-motion:reduce){.hero-serif:after{transform:scaleX(1)!important}}
   .hero-sub{margin:1.65rem 0 0;max-width:690px;font-size:clamp(1.05rem,1.8vw,1.3rem);color:var(--ink-soft);font-weight:500;line-height:1.48}
   .hero-sub strong{color:var(--ink);font-weight:750}
   .hero-actions{display:flex;flex-wrap:wrap;gap:.72rem;margin-top:1.9rem}
@@ -164,7 +183,8 @@
   .status-dot{width:8px;height:8px;border-radius:50%;background:#2ca56a;box-shadow:0 0 0 5px rgba(44,165,106,.12)}
 
   .identity-line{font-family:var(--sans);font-weight:800;font-size:clamp(1rem,1.6vw,1.15rem);letter-spacing:-.015em;color:var(--ink-soft);margin:0 0 .55rem}
-  .tagline{font-size:clamp(4.1rem,9.6vw,8.8rem);font-weight:750;line-height:.82;letter-spacing:-.075em;color:var(--ink);margin:0 0 1rem;max-width:9.2ch}
+  .tagline{font-size:clamp(3.6rem,8.4vw,7.6rem);font-weight:680;line-height:.88;letter-spacing:-.055em;color:var(--ink);margin:0 0 1rem;max-width:10.5ch}
+  .tagline-tail{display:inline-block;margin-left:.09em}
 
   .actions{display:flex;flex-wrap:wrap;gap:.7rem}
 
@@ -199,19 +219,29 @@
   section{display:flex;flex-direction:column;gap:1.1rem;padding:clamp(4.6rem,8vw,7rem) 0;border-bottom:1px solid var(--rule)}
 
   .label{
+    display:flex;
+    align-items:baseline;
+    gap:.6rem;
+    font-family:var(--mono);
     font-size:.72rem;
-    font-weight:800;
-    letter-spacing:.15em;
+    font-weight:700;
+    letter-spacing:.13em;
     text-transform:uppercase;
-    color:var(--coral);
-    margin:0;
+    color:var(--ink-soft);
+    margin:0 0 .2rem;
   }
+  .label:before{content:counter(section,decimal-leading-zero);color:var(--coral);font-weight:700;flex:none}
+  .label:after{content:"";flex:1 1 auto;height:1px;min-width:1.5rem;max-width:6rem;background:var(--rule)}
+  .proof-head .label,.work-heading .label{margin-bottom:.2rem}
+  .proof-head .label:before{content:"—";color:var(--ink-faint);font-weight:500}
 
   h2{
-    font-size:clamp(1.6rem,4vw,2rem);
-    font-weight:800;
-    letter-spacing:-.028em;
-    line-height:1.15;
+    font-family:var(--serif);
+    font-optical-sizing:auto;
+    font-size:clamp(1.9rem,4.4vw,2.7rem);
+    font-weight:440;
+    letter-spacing:-.015em;
+    line-height:1.08;
     margin:0;
     text-wrap:balance;
   }
@@ -222,12 +252,17 @@
   /* ---------- Project card ---------- */
 
   .project{
+    --accent:var(--coral);
+    --accent-tint:color-mix(in srgb, var(--accent) 14%, var(--paper));
     background:var(--paper);
     border:1.5px solid var(--ink);
     border-radius:30px 10px 30px 30px;
-    box-shadow:10px 12px 0 var(--coral);
+    box-shadow:10px 12px 0 var(--accent);
     overflow:hidden;
+    transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s cubic-bezier(.2,.7,.2,1);
   }
+  .project:hover{transform:translateY(-5px);box-shadow:14px 17px 0 var(--accent)}
+  .project--blue{--accent:var(--blue)}
 
   .project-body{
     padding:clamp(1.5rem,3vw,2.5rem);
@@ -237,46 +272,92 @@
   }
 
   .project h3{
-    font-size:clamp(2.4rem,4.4vw,4.7rem);
+    font-size:clamp(2.1rem,3.8vw,3.9rem);
     font-weight:800;
-    letter-spacing:-.06em;
-    line-height:.88;
-    max-width:9ch;
+    letter-spacing:-.055em;
+    line-height:.92;
+    max-width:11ch;
     margin:0;
   }
 
   .stack{display:flex;flex-wrap:wrap;gap:.4rem}
   .chip{
-    font-size:.76rem;
-    font-weight:700;
-    padding:.24rem .7rem;
+    display:inline-flex;
+    align-items:center;
+    gap:.4rem;
+    font-family:var(--mono);
+    font-size:.72rem;
+    font-weight:500;
+    padding:.28rem .68rem;
     border-radius:999px;
-    border:2px solid var(--ink);
-    background:var(--mustard);
-    color:var(--ink);
+    border:1.5px solid var(--accent);
+    background:var(--accent-tint);
+    color:var(--ink-soft);
   }
+  .chip:before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);flex:none}
 
   .project ul{
     margin:0;
-    padding-left:1.15rem;
+    padding:0;
+    list-style:none;
+    counter-reset:principle;
     display:flex;
     flex-direction:column;
-    gap:.45rem;
+    gap:.65rem;
     color:var(--ink-soft);
     font-size:.97rem;
   }
+  .project ul li{position:relative;padding-left:2.15rem}
+  .project ul li:before{counter-increment:principle;content:counter(principle,decimal-leading-zero);position:absolute;left:0;top:.1rem;font-family:var(--mono);font-size:.66rem;font-weight:700;color:var(--accent)}
   .project ul strong{color:var(--ink)}
 
   #work{background:var(--paper);margin:0 calc(clamp(1rem,4vw,2rem) * -1);padding-left:clamp(1rem,4vw,2rem);padding-right:clamp(1rem,4vw,2rem)}
   #approach{background:var(--cream)}
   #background{background:var(--paper)}
 
+  .shot-frame{position:relative;border-top:1px solid var(--rule)}
   .shot{
     display:block;
     width:100%;
     height:auto;
-    border-top:1px solid var(--rule);
     background:var(--canvas);
+  }
+  .shot-caption{position:absolute;top:.9rem;left:.9rem;display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);background:rgba(255,253,248,.88);border:1px solid var(--line-strong);border-radius:999px;padding:.32rem .62rem .32rem .5rem;backdrop-filter:blur(4px)}
+  .shot-caption:before{content:"";width:6px;height:6px;border-radius:50%;background:#2ca56a;box-shadow:0 0 0 3px rgba(44,165,106,.16)}
+
+  /* Decorative panel for case studies without a live screenshot yet
+     (e.g. a system still in build). Reuses the project's --accent so it
+     reads as intentional, not a broken image. */
+  .project-pattern{
+    position:relative;
+    aspect-ratio:16/9;
+    max-height:280px;
+    border-top:1px solid var(--rule);
+    background:
+      radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--accent) 55%, transparent), transparent 58%),
+      repeating-linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, transparent) 0 1.5px, transparent 1.5px 18px),
+      var(--accent-tint);
+    display:flex;
+    align-items:flex-end;
+    justify-content:flex-start;
+    padding:1.1rem;
+    overflow:hidden;
+  }
+  .project-pattern:after{content:"◆ ◆ ◆";position:absolute;top:1.1rem;right:1.1rem;font-size:.7rem;letter-spacing:.3em;color:color-mix(in srgb, var(--accent) 55%, var(--ink))}
+  .project-pattern span{font-family:var(--mono);font-size:.66rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);background:rgba(255,253,248,.85);border:1px solid var(--line-strong);border-radius:999px;padding:.32rem .62rem}
+  @media (min-width:960px){
+    .project--framed .project-pattern{border-top:0;border-left:1px solid var(--rule);height:100%;max-height:none;aspect-ratio:auto}
+  }
+
+  /* Flagship case study treatment — currently applied to Raydar. */
+  .project--signature .project-body{padding:clamp(2rem,4vw,3.5rem)}
+  .project--signature h3{font-size:clamp(2.6rem,5vw,5.2rem);max-width:13ch}
+  .project-kicker{font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0}
+
+  @media (min-width:960px){
+    .project--framed{display:grid;grid-template-columns:1.05fr 1fr;align-items:stretch}
+    .project--framed .shot-frame{border-top:0;border-left:1px solid var(--rule);height:100%}
+    .project--framed .shot{height:100%;object-fit:cover}
   }
 
   /* ---------- Skills ---------- */
@@ -295,13 +376,16 @@
     display:flex;
     flex-direction:column;
     gap:.35rem;
+    transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s cubic-bezier(.2,.7,.2,1);
   }
+  .skill-card:hover{transform:translateY(-3px);box-shadow:5px 6px 0 rgba(23,21,34,.14)}
   .skill-card h3{
-    font-size:.78rem;
-    font-weight:800;
-    letter-spacing:.09em;
+    font-family:var(--mono);
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.1em;
     text-transform:uppercase;
-    color:var(--ink-faint);
+    color:var(--coral);
     margin:0;
   }
   .skill-card p{font-size:.93rem;color:var(--ink-soft)}
@@ -314,7 +398,9 @@
     position:relative;border:2px solid var(--ink);border-radius:18px;padding:1.15rem 1.25rem;
     display:flex;flex-direction:column;gap:.4rem;background:var(--paper);
     box-shadow:6px 7px 0 rgba(23,21,34,.1);
+    transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s cubic-bezier(.2,.7,.2,1);
   }
+  .proof-card:hover{transform:translateY(-3px);box-shadow:9px 11px 0 rgba(23,21,34,.14)}
   .proof-card .plabel{font-family:var(--mono);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;opacity:.72}
   .proof-card .pnum{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1;letter-spacing:-.03em;white-space:nowrap}
   .proof-card p{font-size:.86rem;max-width:none;opacity:.92}
@@ -333,9 +419,10 @@
     border-left:3px solid var(--ink);
     padding-left:1.15rem;
   }
-  .role{padding:.55rem 0}
+  .role{padding:.65rem 0;border-left:2px solid transparent;margin-left:-1.17rem;padding-left:1.15rem;transition:border-color .2s ease,background .2s ease}
+  .role:hover{border-left-color:var(--coral);background:linear-gradient(90deg,rgba(255,91,69,.05),transparent 60%)}
   .role .who{font-weight:700;font-size:.98rem}
-  .role .when{font-size:.85rem;color:var(--ink-faint);font-weight:600}
+  .role .when{font-family:var(--mono);font-size:.74rem;color:var(--ink-faint);font-weight:500;letter-spacing:.02em}
   .role .what{font-size:.93rem;color:var(--ink-soft)}
 
   /* ---------- Contact ---------- */
@@ -383,13 +470,10 @@
   .folder strong{display:block;font-size:1rem;line-height:1.25}
   .folder small{display:block;color:var(--ink-soft);font-size:.8rem;margin-top:.25rem}
   .folder:hover small,.folder:focus-visible small{color:var(--ink-soft)}
-  .directory-meta{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rule);padding:0 0 .75rem;margin-bottom:1rem;color:var(--ink-faint);font-size:.82rem}
-  .directory-meta span:last-child{font-weight:700;color:var(--coral)}
-  .resume-note{background:var(--mint);border:2px solid var(--ink);border-radius:14px;padding:1rem 1.1rem;display:flex;align-items:center;gap:.8rem}
-  .resume-note strong{font-size:.96rem}
-  .resume-note span{font-size:.83rem;max-width:17rem}
-  .resume-note .actions{gap:.45rem}
-  .resume-note .btn{padding:.48rem .75rem;font-size:.8rem}
+  .directory-meta{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rule);padding-bottom:.85rem;margin-bottom:.35rem;color:var(--ink-faint);font-family:var(--mono);font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em}
+  .directory-meta span:last-child{display:flex;align-items:center;gap:.4rem;font-weight:700;color:var(--accent,var(--coral))}
+  .directory-meta span:last-child:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent,var(--coral))}
+  .topic-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem}
   @media (max-width:760px){
     .nav{margin:0 10px}
     .nav-links a:not(.nav-cta){display:none}
@@ -397,16 +481,24 @@
     .profile-wrap{justify-self:start;order:-1;margin:1rem 0 .75rem 1rem;width:125px;height:125px}
     .profile-wrap:after{right:-16px;bottom:-2px;width:42px;height:42px}
     .directory-nav{grid-template-columns:1fr}
-    .resume-note{align-items:flex-start;flex-direction:column}
     .work-heading{align-items:start;flex-direction:column}
+    .tagline-tail{margin-left:0}
+    .role{margin-left:0;padding-left:1.15rem}
+  }
+
+  @media (max-width:480px){
+    .hero-serif{font-size:1.14em}
   }
 
   @media (prefers-reduced-motion:reduce){
     *{transition:none!important;scroll-behavior:auto!important}.ticker-track{animation:none}
+    .hero-bg{transform:none!important}
   }
 </style>
 </head>
 <body>
+
+<div class="scroll-indicator" aria-hidden="true"></div>
 
 <div class="nav-wrap">
   <nav class="nav" aria-label="Primary navigation">
@@ -424,11 +516,13 @@
 <main class="wrap">
 
   <header class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <span class="hero-mark" aria-hidden="true">RB</span>
     <div class="hero-layout">
-      <div class="hero-main">
+      <div class="hero-main reveal">
         <h1 class="identity-line">Rachel Beecham</h1>
         <div class="kicker">AI enablement &middot; tech operations &middot; business systems</div>
-        <p class="tagline">Make the <span class="hero-serif">messy</span> work better.</p>
+        <p class="tagline">Make the <span class="hero-serif">messy</span><br><span class="tagline-tail">work better.</span></p>
         <p class="hero-sub">
           I turn scattered business processes into <strong>clearer systems, practical automation, and human-centered AI workflows.</strong> I know what operational friction feels like because I spent years doing the work before I started building the software.
         </p>
@@ -438,7 +532,7 @@
           <a class="btn btn-light" href="https://github.com/rbeecham1076" target="_blank" rel="noopener noreferrer" aria-label="Rachel Beecham's GitHub profile">GitHub &nearr;</a>
         </div>
       </div>
-      <aside class="hero-side" aria-label="Quick profile">
+      <aside class="hero-side reveal" aria-label="Quick profile">
         <div class="mini-card">
           <div class="mini-label">Current direction</div>
           <div class="mini-title">Practical AI for the work between the tools.</div>
@@ -462,9 +556,10 @@
 
   <section id="work">
     <div class="work-heading">
-      <p class="label">Selected work</p>
+      <p class="label">Build portfolio</p>
       <h2>A working index of systems, tools, and decisions.</h2>
     </div>
+    <p class="muted portfolio-note">Working systems I designed, built, and shipped — not concept mockups.</p>
 
     <div class="directory">
       <nav class="directory-nav" aria-label="Portfolio contents">
@@ -474,24 +569,16 @@
           <strong>AI Customer Inquiry Organizer</strong>
           <small>AI triage &middot; Python &middot; Streamlit</small>
         </a>
-        <a class="folder" href="#design-intelligence">
+        <a class="folder" href="#raydar">
           <span class="folder-glyph" aria-hidden="true"></span>
-          <strong>Design Intelligence</strong>
-          <small>Trend research &middot; AI-assisted &middot; Human-in-the-loop</small>
+          <strong>Raydar</strong>
+          <small>AI decision support &middot; Next.js &middot; Trend intelligence</small>
         </a>
-        <div class="resume-note">
-          <strong>Résumé / profile</strong>
-          <span class="muted">Experience, education, and technical strengths in one page.</span>
-          <div class="actions">
-            <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="View Rachel Beecham's résumé PDF">View PDF</a>
-            <a class="btn btn-ghost" href="resume.pdf" download aria-label="Download Rachel Beecham's résumé PDF">Download</a>
-          </div>
-        </div>
       </nav>
 
-      <article class="project" id="inquiry-organizer">
-        <div class="directory-meta"><span>01 / case study</span><span>Live project</span></div>
+      <article class="project project--framed reveal" id="inquiry-organizer">
         <div class="project-body">
+          <div class="directory-meta"><span>01 / case study</span><span>Live project</span></div>
           <h3>Messy inbox in. Real work out.</h3>
           <div class="stack">
             <span class="chip">Python</span>
@@ -525,48 +612,77 @@
             <a class="btn btn-ghost" href="https://github.com/rbeecham1076/ai-customer-inquiry-organizer" target="_blank" rel="noopener noreferrer" aria-label="View AI Customer Inquiry Organizer source code on GitHub">View the code</a>
           </div>
         </div>
-        <picture>
-          <source srcset="project-screenshot.webp" type="image/webp">
-          <img class="shot" src="project-screenshot.png"
-               alt="The AI Customer Inquiry Organizer showing a customer message analyzed into category, priority, sentiment, order number, routing, and a draft reply, all editable before approval."
-               loading="lazy" width="1600" height="1243">
-        </picture>
+        <div class="shot-frame">
+          <picture>
+            <source srcset="project-screenshot.webp" type="image/webp">
+            <img class="shot" src="project-screenshot.png"
+                 alt="The AI Customer Inquiry Organizer showing a customer message analyzed into category, priority, sentiment, order number, routing, and a draft reply, all editable before approval."
+                 loading="lazy" width="1600" height="1243">
+          </picture>
+          <span class="shot-caption">Live interface</span>
+        </div>
       </article>
 
-      <article class="project" id="design-intelligence">
-        <div class="directory-meta"><span>02 / case study</span><span>In practice</span></div>
+      <article class="project project--blue project--framed project--signature reveal" id="raydar">
         <div class="project-body">
-          <h3>Know what to design next.</h3>
+          <div class="directory-meta"><span>02 / flagship build</span><span>Public demo live</span></div>
+          <p class="project-kicker">Raydar</p>
+          <h3>Turn market noise into product decisions.</h3>
           <div class="stack">
-            <span class="chip">AI Workflow</span>
-            <span class="chip">Market Intelligence</span>
-            <span class="chip">Trend Research</span>
+            <span class="chip">Next.js</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">Recharts</span>
+            <span class="chip">AI-Assisted Scoring</span>
             <span class="chip">Human-in-the-Loop</span>
           </div>
           <p class="muted">
-            Built for my own digital-design business: a repeatable research workflow that reads
-            Etsy, Pinterest, Faire, and Creative Fabrica for market evidence, emerging visual
-            signals, boutique &amp; wholesale taste, and creator-supply saturation — then turns
-            them into structured, scored product opportunities.
+            Built for my own digital-design business, where the constraint was never a shortage of
+            market signals — it was turning scattered trend, competitor, and performance evidence
+            into one consistent decision about what deserved production time. Raydar is a decision
+            system, not a trend dashboard: it structures evidence, scores it against eight
+            weighted dimensions (demand, trend momentum, repeatability, customization, product
+            fit, competition gap, confidence, and a saturation penalty), and carries an approved
+            opportunity through research, launch, and performance review.
           </p>
           <p class="muted">
-            A trend on one marketplace is interesting. The same movement appearing independently
-            across multiple sources is far more meaningful. Each opportunity is scored on demand,
-            momentum, repeatability, customization, boutique fit, and competition gap, then
-            classified as Make Now, Next, Watch, or Saturated — a decision-support system, not a
-            guarantee of sales.
+            The public demo you can click into runs the same interface and product logic on
+            synthetic, anonymized data — it does not expose the real evidence, sources, or
+            business data behind my actual shop, which stay in a private operating environment.
           </p>
           <ul>
-            <li><strong>AI assists the research.</strong> Tagging, clustering, and summarizing
-              evidence across sources — not making the creative call.</li>
-            <li><strong>The system structures it.</strong> Every signal is normalized and scored
-              against the same criteria, so patterns are comparable.</li>
-            <li><strong>I decide.</strong> Taste, originality, and whether a trend is worth
-              pursuing stay a human judgment — the same principle behind everything else I build:
-              AI drafts, systems validate, people decide.</li>
+            <li><strong>Code calculates.</strong> Scoring is deterministic logic, not an LLM
+              guess — reproducible and explainable, every time.</li>
+            <li><strong>AI interprets.</strong> The model's job is summarizing evidence and
+              surfacing patterns at the interpretation layer — never the final vote.</li>
+            <li><strong>I decide.</strong> The system organizes, compares, and recommends; the
+              call on what's worth building stays a human judgment.</li>
           </ul>
+          <div class="actions">
+            <a class="btn btn-primary" href="raydar.html" aria-label="Read the Raydar case study">Read the case study</a>
+            <a class="btn btn-ghost" href="https://raydar-demo.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="Open the Raydar public demo">Public demo &nearr;</a>
+            <a class="btn btn-ghost" href="https://github.com/rbeecham1076/raydar-demo" target="_blank" rel="noopener noreferrer" aria-label="View Raydar public demo source code on GitHub">View the code</a>
+          </div>
         </div>
+        <div class="project-pattern" aria-hidden="true"><span>Public demo &middot; private data stays private</span></div>
       </article>
+    </div>
+  </section>
+
+  <section id="design-intelligence">
+    <div>
+      <p class="label">Design Intelligence</p>
+      <h2>Where I'll write about AI, design, and business systems.</h2>
+    </div>
+    <p class="muted">
+      Editorial breakdowns of the workflows, decisions, and systems behind my work — starting
+      with Raydar. Building this section out now; check back soon.
+    </p>
+    <div class="topic-row reveal" aria-label="Upcoming editorial topics">
+      <span class="chip">AI + Business Workflows</span>
+      <span class="chip">Digital Product Strategy</span>
+      <span class="chip">Trend Intelligence</span>
+      <span class="chip">Process Improvement</span>
+      <span class="chip">Practical AI</span>
     </div>
   </section>
 
@@ -575,7 +691,7 @@
       <p class="label">What I bring</p>
       <h2>Operations experience, now with code behind it.</h2>
     </div>
-    <div class="skill-grid">
+    <div class="skill-grid reveal">
       <div class="skill-card">
         <h3>Build</h3>
         <p>Python, JavaScript, TypeScript, SQL / SQLite, Git &amp; GitHub, LLM API integration, prompt design.</p>
@@ -594,7 +710,7 @@
       <p class="label">Track record</p>
       <p class="muted">A few numbers behind the operations experience above.</p>
     </div>
-    <div class="proof-grid">
+    <div class="proof-grid reveal">
       <div class="proof-card strong-a">
         <div class="plabel">First-year sales</div>
         <div class="pnum">$500K+</div>
@@ -624,7 +740,7 @@
       <p class="label">Background</p>
       <h2>Where this comes from.</h2>
     </div>
-    <div class="timeline">
+    <div class="timeline reveal">
       <div class="role">
         <div class="who">Sunnie Ray Digitals — Business Operations Lead / Owner</div>
         <div class="when">2024 – Present</div>
@@ -653,7 +769,7 @@
   </section>
 
   <section id="contact">
-    <div class="contact">
+    <div class="contact reveal">
       <div>
         <p class="label">Open to</p>
         <h2>AI operations, workflow automation, technical implementation.</h2>
@@ -666,6 +782,7 @@
         <a class="btn btn-primary" href="mailto:Contact@RachelBeecham.dev">Contact@RachelBeecham.dev</a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/rachel-beecham/" target="_blank" rel="noopener noreferrer" aria-label="Rachel Beecham's LinkedIn profile">LinkedIn</a>
         <a class="btn btn-ghost" href="https://github.com/rbeecham1076" target="_blank" rel="noopener noreferrer" aria-label="Rachel Beecham's GitHub profile">GitHub</a>
+        <a class="btn btn-ghost" href="resume.html" aria-label="View Rachel Beecham's web résumé">Résumé (Web)</a>
         <a class="btn btn-ghost" href="resume.pdf" download aria-label="Download Rachel Beecham's résumé PDF">Résumé (PDF)</a>
       </div>
     </div>
@@ -677,6 +794,63 @@
   <span>Rachel Beecham &middot; Built by hand, no site builder.</span>
   <span>rachelbeecham.dev</span>
 </footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Progressive enhancement: only hide .reveal content once JS has
+  // actually confirmed it can run. If this script errors out early,
+  // .js never gets added and every .reveal element stays fully visible.
+  document.documentElement.classList.add("js");
+
+  var revealTargets = document.querySelectorAll(".reveal, .hero-serif");
+
+  if (reduceMotion || typeof IntersectionObserver === "undefined") {
+    revealTargets.forEach(function(el){ el.classList.add("is-visible"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+    revealTargets.forEach(function(el){ io.observe(el); });
+  }
+
+  // Scroll progress indicator
+  var indicator = document.querySelector(".scroll-indicator");
+  // Subtle hero parallax
+  var heroBg = document.querySelector(".hero-bg");
+  var ticking = false;
+
+  function onScroll(){
+    var doc = document.documentElement;
+    var scrollTop = window.scrollY || doc.scrollTop;
+    if (indicator) {
+      var max = (doc.scrollHeight - doc.clientHeight) || 1;
+      indicator.style.width = Math.min(100, (scrollTop / max) * 100) + "%";
+    }
+    if (heroBg && !reduceMotion) {
+      var offset = Math.min(scrollTop * 0.06, 40);
+      heroBg.style.transform = "translateY(" + offset + "px)";
+    }
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", function(){
+    if (!ticking) {
+      window.requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  onScroll();
+})();
+</script>
 
 </body>
 </html>

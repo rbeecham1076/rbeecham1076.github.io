@@ -4,7 +4,7 @@ Personal portfolio site for Rachel Beecham — AI + business systems, workflow a
 
 ## Tech
 
-Static HTML/CSS, no build step, no JavaScript framework. Fonts are loaded from Google Fonts (Bricolage Grotesque, DM Mono, Instrument Serif). Hosted on GitHub Pages with a custom domain via `CNAME`.
+Static HTML/CSS, no build step, no JavaScript framework. Fonts are loaded from Google Fonts (Bricolage Grotesque, DM Mono, Fraunces). Hosted on GitHub Pages with a custom domain via `CNAME`. Three pages: `index.html` (home), `raydar.html` (Raydar case study), `resume.html` (web résumé) — each is self-contained (its own `<style>` block) rather than sharing a stylesheet, matching the no-build-step approach.
 
 ## Local preview
 
@@ -23,19 +23,23 @@ Push to the default branch of this repo (`rbeecham1076.github.io`). GitHub Pages
 
 | File | Purpose |
 |---|---|
-| `index.html` | The entire site — markup, styles, and content in one file. |
+| `index.html` | The home page — markup, styles, and content in one file. |
+| `raydar.html` | Raydar flagship case study — problem, system, scoring, human-in-the-loop, public/private boundary. Uses only public-safe facts (the public `raydar-demo` repo/README); never pulls from the private `sunnie-ray-trend-ops` data. |
+| `resume.html` | Web/HTML résumé, kept in sync with `resume.pdf`. Update both when experience or projects change. |
 | `robots.txt` | Crawler rules; points crawlers at `sitemap.xml`. |
 | `sitemap.xml` | Lists indexable URLs for search engines. Add a `<url>` entry here if a new page is ever published. |
 | `CNAME` | GitHub Pages custom-domain config — do not remove. |
-| `resume.pdf` | Linked from the hero, résumé/profile card, and contact section. Replace this file (keeping the same name) to update the résumé everywhere at once. |
+| `resume.pdf` | Linked from the hero, résumé page, and contact section. Replace this file (keeping the same name) to update the downloadable résumé; update `resume.html` to match. |
 | `project-screenshot.png` / `project-screenshot.webp` | Screenshot of the AI Customer Inquiry Organizer project. The `<picture>` element in `index.html` serves the WebP to browsers that support it and falls back to the PNG. Regenerate both if the screenshot changes (same dimensions: 1600×1243). |
 | `og-image.jpg` | Social preview image (1200×630) used for Open Graph and Twitter Card previews when the link is shared. Generated to match the site's palette/type — regenerate at the same dimensions if the brand identity changes. |
 
 ## Updating project content
 
-The featured project (AI Customer Inquiry Organizer) lives inside `<article class="project" id="inquiry-organizer">` in `index.html`. Edit the heading, description paragraphs, principle list, tech chips, and action links directly there — everything is plain HTML, no templating.
+Work has two projects in `index.html`: `<article class="project" id="inquiry-organizer">` and `<article class="project" id="raydar">` (the latter is a summary card — the full write-up lives in `raydar.html`). Edit headings, description paragraphs, principle lists, tech chips, and action links directly — everything is plain HTML, no templating.
 
-To add a second project, duplicate the `.folder` nav entry and the `<article class="project">` block, giving the new article a unique `id` and updating the `.directory-nav` link's `href` to match.
+To add a third project, duplicate the `.folder` nav entry and a `<article class="project">` block, giving it a unique `id` and matching `.directory-nav` `href`.
+
+`#design-intelligence` in `index.html` is a separate, non-project editorial section (currently a "coming soon" state) — don't merge future project write-ups into it, and don't pull from the private `sunnie-ray-trend-ops` folder to populate it.
 
 ## SEO
 
